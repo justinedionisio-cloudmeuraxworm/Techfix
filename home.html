@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFix — Home</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages/home.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Top nav bar -->
+    <header class="topbar">
+      <div class="topbar__brand">
+        <div class="topbar__brand-mark">🖥️</div>
+        <span>TechFix</span>
+      </div>
+      <div class="topbar__title">Computer Troubleshooting Simulation Game</div>
+      <div class="topbar__right">
+        <div class="topbar__profile">
+          <div class="avatar" data-tf-navbar-avatar>S</div>
+          <div class="topbar__profile-info">
+            <span class="topbar__profile-name" data-tf-navbar-name>Student</span>
+            <span class="badge badge--level" data-tf-navbar-level>Level 1</span>
+          </div>
+        </div>
+        <button class="icon-btn" type="button" title="Settings" id="settingsBtn">⚙️</button>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-grid">
+
+        <!-- Main column -->
+        <div class="stack">
+
+          <!-- Hero + Today's Mission -->
+          <div class="row-2">
+            <section class="card">
+              <div class="card__body hero-body">
+                <h1 class="hero-title">TechFix</h1>
+                <p class="hero-subtitle">Computer Troubleshooting<br />Simulation Game</p>
+                <div class="hero-illustration" aria-hidden="true">🖥️🔧</div>
+              </div>
+            </section>
+
+            <section class="card card--gradient-warm" id="missionCard">
+              <div class="card__header">🚩 Today's Mission</div>
+              <div class="card__body">
+                <h3 id="missionTitle">Computer Won't Turn On</h3>
+                <div class="mission-meta">
+                  <span class="badge badge--easy" id="missionDifficulty">Easy</span>
+                  <span class="text-muted" id="missionTime">⏱ 10 Minutes</span>
+                </div>
+                <div class="mission-rewards">
+                  <div class="stat-pill">
+                    <div class="stat-pill__label">Rewards</div>
+                    <div class="stat-pill__value">⭐ <span id="missionXp">+100</span> XP</div>
+                  </div>
+                  <div class="stat-pill">
+                    <div class="stat-pill__label">&nbsp;</div>
+                    <div class="stat-pill__value">🪙 <span id="missionCoins">+50</span> Coins</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-block" id="startMissionBtn">▶ Start Mission</button>
+              </div>
+            </section>
+          </div>
+
+          <!-- How to Play / Achievements -->
+          <div class="row-2">
+            <a class="tile" href="how-to-play.html" id="howToPlayTile">
+              <div class="tile__icon tile__icon--blue">❓</div>
+              <div class="tile__title">How to Play</div>
+              <div class="tile__desc">Learn the troubleshooting flow before you begin.</div>
+            </a>
+
+            <button class="tile" id="achievementsTile" type="button">
+              <div class="tile__icon tile__icon--gold">🏅</div>
+              <div class="tile__title">Achievements</div>
+              <div class="tile__desc">Track the badges you've earned so far.</div>
+            </button>
+          </div>
+
+          <!-- Mission progress -->
+          <section class="card">
+            <div class="card__body">
+              <div class="progress-heading">
+                <h3>Mission Progress</h3>
+                <span class="text-muted" id="missionProgressLabel">0 / 10 Missions Completed</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="missionProgressFill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <section class="card" data-tf-dashboard>
+            <div class="card__header">📊 Player Dashboard</div>
+            <div class="card__body dashboard-body">
+              <div class="dashboard-identity">
+                <div class="avatar avatar--lg" data-tf-dash-avatar>S</div>
+                <div>
+                  <div class="dashboard-name" data-tf-dash-name>Student</div>
+                  <span class="badge badge--level" data-tf-dash-level>Level 1</span>
+                </div>
+              </div>
+
+              <div class="dashboard-xp">
+                <div class="dashboard-xp-row">
+                  <span class="text-muted">XP</span>
+                  <span class="text-muted" data-tf-dash-xp-label>0/1000 XP</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill progress-fill--gold" data-tf-dash-xp-fill style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <p class="text-muted dashboard-rank-label">
+                Current Rank: <strong data-tf-dash-rank>Beginner</strong>
+              </p>
+
+              <div class="row-2">
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Tech Coins</div>
+                  <div class="stat-pill__value">🪙 <span data-tf-dash-coins>0</span></div>
+                </div>
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Troubleshooting</div>
+                  <div class="stat-pill__value">🎯 <span data-tf-dash-accuracy>0%</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="row-2">
+            <button class="tile" id="profileTile" type="button">
+              <div class="tile__icon tile__icon--purple">👤</div>
+              <div class="tile__title">Profile</div>
+            </button>
+            <button class="tile" id="settingsTile" type="button">
+              <div class="tile__icon tile__icon--blue">⚙️</div>
+              <div class="tile__title">Settings</div>
+            </button>
+          </div>
+        </aside>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/player.js"></script>
+  <script src="js/core/navigation.js"></script>
+  <script src="js/data/missions.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/dashboard-sidebar.js"></script>
+  <script src="js/pages/home.js"></script>
+</body>
+</html>

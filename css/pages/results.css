@@ -1,0 +1,201 @@
+/* =========================================================
+   TechFix — results.css
+   Styling for the Results & Educational Feedback screen
+   (Phase 5). Reuses tokens and shared components from
+   base.css / components.css — only screen-specific result
+   banner, recap rows, evidence list, and level-up visuals
+   live here.
+   ========================================================= */
+
+/* ---------- Blocked state (no submitted diagnosis) ---------- */
+.blocked-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 20px 10px;
+}
+
+.blocked-notice__icon {
+  font-size: 2rem;
+}
+
+.blocked-notice p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  max-width: 380px;
+}
+
+/* ---------- Result banner ---------- */
+.result-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  box-shadow: var(--shadow-card);
+  color: var(--color-white);
+  background: linear-gradient(120deg, #34d399, var(--color-green));
+}
+
+.result-banner--needs-review {
+  background: linear-gradient(120deg, #ffb648, var(--color-orange));
+}
+
+.result-banner__icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+
+.result-banner__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-white);
+}
+
+.result-banner__subtitle {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  margin-top: 2px;
+}
+
+/* ---------- Diagnosis recap ---------- */
+.recap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 4px;
+  border-bottom: 1px solid #eef2f8;
+}
+
+.recap-row:last-child {
+  border-bottom: none;
+}
+
+.recap-row__label {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.recap-row__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-navy);
+  text-align: right;
+}
+
+.recap-row__value--correct {
+  color: var(--color-green);
+}
+
+/* ---------- Evidence recap list (mirrors Diagnosis screen's evidence list) ---------- */
+.evidence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.evidence-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px solid #eef2f8;
+  font-size: 0.86rem;
+}
+
+.evidence-item:last-child {
+  border-bottom: none;
+}
+
+.evidence-item__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.evidence-item__mark--normal { color: var(--color-green); }
+.evidence-item__mark--problem { color: #ef4444; }
+.evidence-item__mark--pending { color: #c3cfe0; }
+
+.evidence-item__status--normal { color: var(--color-green); font-size: 0.76rem; font-weight: 600; }
+.evidence-item__status--problem { color: #ef4444; font-size: 0.76rem; font-weight: 600; }
+.evidence-item__status--pending { color: var(--color-text-muted); font-size: 0.76rem; font-weight: 600; }
+
+/* ---------- Educational feedback ---------- */
+.feedback-text {
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  background: #f4f8fd;
+  border-left: 3px solid var(--color-blue);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+.tips-heading {
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+}
+
+/* ---------- Rewards recap ----------
+   Note: .card--gradient-gold / .card--gradient-cool only color the
+   card__header (see components.css) — the card__body stays white, so
+   these inner elements use the same light-tint-on-white pattern as
+   .stat-pill / .evidence-item elsewhere, not white-on-color. */
+.rewards-row {
+  display: flex;
+  gap: var(--gap-lg);
+  margin-bottom: 14px;
+}
+
+.rewards-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-gold-soft);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #b17c00;
+}
+
+.rewards-badge__icon {
+  font-size: 1.3rem;
+}
+
+/* ---------- Level up ---------- */
+.level-up-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.level-up-badge {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-navy);
+  background: #eaf2fc;
+  border-radius: var(--radius-pill);
+  padding: 8px 20px;
+}
+
+.level-up-badge--new {
+  background: linear-gradient(120deg, var(--color-blue-light), var(--color-blue));
+  color: var(--color-white);
+}
+
+.level-up-arrow {
+  font-size: 1.3rem;
+  color: var(--color-blue);
+}

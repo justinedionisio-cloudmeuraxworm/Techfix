@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFix — How to Play</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages/how-to-play.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Top nav bar -->
+    <header class="topbar">
+      <div class="topbar__brand">
+        <div class="topbar__brand-mark">🖥️</div>
+        <span>TechFix</span>
+      </div>
+      <div class="topbar__title">How to Play Guide</div>
+      <div class="topbar__right">
+        <div class="topbar__profile">
+          <div class="avatar" data-tf-navbar-avatar>S</div>
+          <div class="topbar__profile-info">
+            <span class="topbar__profile-name" data-tf-navbar-name>Student</span>
+            <span class="badge badge--level" data-tf-navbar-level>Level 1</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="htp-grid">
+
+        <!-- Left: Game overview -->
+        <section class="card">
+          <div class="card__header">🎮 Game Overview</div>
+          <div class="card__body">
+            <h3>Welcome to TechFix!</h3>
+            <p class="text-muted htp-overview-text">
+              Learn how to diagnose and solve common computer hardware problems
+              through interactive troubleshooting. Complete missions, earn XP,
+              unlock badges, and improve your troubleshooting skills.
+            </p>
+
+            <div class="htp-overview-icons">
+              <div class="htp-overview-icon"><span>🖥️</span>Computer Hardware</div>
+              <div class="htp-overview-icon"><span>🔧</span>Troubleshooting</div>
+              <div class="htp-overview-icon"><span>⭐</span>XP Rewards</div>
+              <div class="htp-overview-icon"><span>🏆</span>Achievements</div>
+            </div>
+
+            <div class="stack htp-overview-tiles">
+              <div class="tile">
+                <div class="tile__icon tile__icon--blue">🎓</div>
+                <div class="tile__title">Learn</div>
+                <div class="tile__desc">Improve computer troubleshooting skills through realistic scenarios.</div>
+              </div>
+              <div class="tile">
+                <div class="tile__icon tile__icon--gold">⭐</div>
+                <div class="tile__title">Play</div>
+                <div class="tile__desc">Complete missions, level up, and unlock new challenges.</div>
+              </div>
+              <div class="tile">
+                <div class="tile__icon tile__icon--green">🏅</div>
+                <div class="tile__title">Achieve</div>
+                <div class="tile__desc">Earn XP, Tech Coins, badges, and improve your ranking.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Center: Step-by-step tutorial -->
+        <section class="card">
+          <div class="card__header">📋 Step-by-Step Tutorial</div>
+          <div class="card__body">
+            <div class="row-2 htp-steps">
+              <div class="step-card">
+                <span class="step-card__num">1</span>
+                <div class="step-card__title">🎯 Select a Mission</div>
+                <p class="step-card__desc">Choose a troubleshooting mission from the main menu.</p>
+              </div>
+              <div class="step-card">
+                <span class="step-card__num">2</span>
+                <div class="step-card__title">🔍 Inspect Components</div>
+                <p class="step-card__desc">Examine computer components to gather evidence.</p>
+              </div>
+              <div class="step-card">
+                <span class="step-card__num">3</span>
+                <div class="step-card__title">🛠️ Use Troubleshooting Tools</div>
+                <p class="step-card__desc">Use tools such as a screwdriver, flashlight, multimeter, and PSU tester to inspect hardware.</p>
+              </div>
+              <div class="step-card">
+                <span class="step-card__num">4</span>
+                <div class="step-card__title">🧠 Analyze the Evidence</div>
+                <p class="step-card__desc">Review inspection results and identify the most likely cause of the problem.</p>
+              </div>
+            </div>
+
+            <div class="step-card htp-step-full">
+              <span class="step-card__num">5</span>
+              <div class="step-card__title">✅ Submit Your Diagnosis</div>
+              <p class="step-card__desc">Select the most likely cause and submit it for evaluation — the system provides educational feedback automatically.</p>
+            </div>
+
+            <h4 class="htp-bonus-title">Bonus Section — Gameplay Flow</h4>
+            <div class="flow-row">
+              <div class="flow-node"><span class="flow-node__icon">🏠</span>Home</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node"><span class="flow-node__icon">📋</span>Mission Briefing</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node"><span class="flow-node__icon">🔧</span>Troubleshooting</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node"><span class="flow-node__icon">✅</span>Diagnosis</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node"><span class="flow-node__icon">🏆</span>Results</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node"><span class="flow-node__icon">⬆️</span>Level Up</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right: Tips -->
+        <section class="card">
+          <div class="card__header">💡 Tips for Success</div>
+          <div class="card__body">
+            <div class="tip-list">
+              <div class="tip-item"><span class="tip-item__icon">💡</span>Always inspect before guessing.</div>
+              <div class="tip-item"><span class="tip-item__icon">💡</span>Follow the troubleshooting process step by step.</div>
+              <div class="tip-item"><span class="tip-item__icon">💡</span>Read all observations carefully.</div>
+              <div class="tip-item"><span class="tip-item__icon">💡</span>Use the correct tools.</div>
+              <div class="tip-item"><span class="tip-item__icon">💡</span>Learn from every mission.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Bottom action bar -->
+    <div class="bottom-bar">
+      <button class="btn btn-secondary" id="backHomeBtn">◀◀ Back to Home</button>
+      <button class="btn btn-primary btn-lg" id="startFirstMissionBtn">🚀 Start First Mission</button>
+    </div>
+  </div>
+
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/player.js"></script>
+  <script src="js/core/navigation.js"></script>
+  <script src="js/data/missions.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/pages/how-to-play.js"></script>
+</body>
+</html>

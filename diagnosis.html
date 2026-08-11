@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFix — Diagnosis</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages/diagnosis.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Top nav bar -->
+    <header class="topbar">
+      <div class="topbar__brand">
+        <div class="topbar__brand-mark">🖥️</div>
+        <span>TechFix</span>
+      </div>
+      <div class="topbar__title">Diagnosis</div>
+      <div class="topbar__right">
+        <div class="topbar__profile">
+          <div class="avatar" data-tf-navbar-avatar>S</div>
+          <div class="topbar__profile-info">
+            <span class="topbar__profile-name" data-tf-navbar-name>Student</span>
+            <span class="badge badge--level" data-tf-navbar-level>Level 1</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-grid">
+
+        <!-- Main column -->
+        <div class="stack">
+
+          <!-- Mission header -->
+          <section class="mission-header">
+            <div class="mission-header__eyebrow">🧩 Diagnosis</div>
+            <h1 id="missionHeaderTitle">Mission 1: Computer Won't Turn On</h1>
+          </section>
+
+          <!-- Blocked state: no inspection state exists at all -->
+          <section class="card" id="blockedCard" style="display:none;">
+            <div class="card__header">🚫 Troubleshooting Required</div>
+            <div class="card__body">
+              <div class="blocked-notice">
+                <span class="blocked-notice__icon">🔧</span>
+                <p id="blockedMessage">Complete the troubleshooting inspection first.</p>
+                <button type="button" class="btn btn-primary" id="blockedReturnBtn">◀ Return to Troubleshooting</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Evidence Summary -->
+          <section class="card" id="evidenceCard" style="display:none;">
+            <div class="card__header">🧾 Evidence Summary</div>
+            <div class="card__body">
+              <p class="diagnosis-hint">This is what you found while inspecting the components during Troubleshooting.</p>
+
+              <div class="evidence-list" id="evidenceList"></div>
+
+              <div class="progress-heading-row">
+                <span>Inspection Progress</span>
+                <strong id="evidenceProgressLabel">0 / 6 Components Inspected</strong>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="evidenceProgressFill" style="width: 0%;"></div>
+              </div>
+
+              <div class="incomplete-notice" id="incompleteNotice" style="display:none;">
+                <span>⚠️</span>
+                <span>Finish inspecting every component in Troubleshooting before you can submit a diagnosis.</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Diagnosis choices -->
+          <section class="card" id="choicesCard" style="display:none;">
+            <div class="card__header">🩺 What's the Most Likely Cause?</div>
+            <div class="card__body">
+              <p class="diagnosis-hint">Compare the evidence above, then select the diagnosis that best fits what you found.</p>
+              <div class="choice-grid" id="choiceGrid"></div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <section class="card" data-tf-dashboard>
+            <div class="card__header">📊 Player Dashboard</div>
+            <div class="card__body dashboard-body">
+              <div class="dashboard-identity">
+                <div class="avatar avatar--lg" data-tf-dash-avatar>S</div>
+                <div>
+                  <div class="dashboard-name" data-tf-dash-name>Student</div>
+                  <span class="badge badge--level" data-tf-dash-level>Level 1</span>
+                </div>
+              </div>
+              <div class="dashboard-xp">
+                <div class="dashboard-xp-row">
+                  <span class="text-muted">XP</span>
+                  <span class="text-muted" data-tf-dash-xp-label>0/1000 XP</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill progress-fill--gold" data-tf-dash-xp-fill style="width: 0%;"></div>
+                </div>
+              </div>
+              <p class="text-muted dashboard-rank-label">
+                Current Rank: <strong data-tf-dash-rank>Beginner</strong>
+              </p>
+              <div class="row-2">
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Tech Coins</div>
+                  <div class="stat-pill__value">🪙 <span data-tf-dash-coins>0</span></div>
+                </div>
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Troubleshooting</div>
+                  <div class="stat-pill__value">🎯 <span data-tf-dash-accuracy>0%</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card__header">💡 Diagnosis Tips</div>
+            <div class="card__body">
+              <div class="tip-list">
+                <div class="tip-item"><span class="tip-item__icon">🔎</span><span>Focus on the component the evidence flagged as a problem.</span></div>
+                <div class="tip-item"><span class="tip-item__icon">🧠</span><span>A component marked "Normal" is unlikely to be the cause.</span></div>
+                <div class="tip-item"><span class="tip-item__icon">✅</span><span>You can only submit one diagnosis, so review the evidence first.</span></div>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- Bottom action bar -->
+    <div class="bottom-bar">
+      <button class="btn btn-secondary" id="returnToTroubleshootingBtn">◀ Return to Troubleshooting</button>
+      <button class="btn btn-primary btn-lg" id="submitDiagnosisBtn" disabled>✅ Submit Diagnosis</button>
+    </div>
+  </div>
+
+  <!-- Confirmation modal -->
+  <div class="tf-modal-overlay" id="diagnosisModalOverlay">
+    <div class="tf-modal" role="dialog" aria-modal="true" aria-labelledby="diagnosisModalTitle">
+      <h3 id="diagnosisModalTitle">Submit this diagnosis?</h3>
+      <p class="tf-modal__note">You won't be able to change your answer after confirming.</p>
+      <div class="tf-modal__selection" id="modalSelectedChoice">—</div>
+      <div class="tf-modal__actions">
+        <button type="button" class="btn btn-secondary" id="modalCancelBtn">Cancel</button>
+        <button type="button" class="btn btn-primary" id="modalConfirmBtn">Confirm Diagnosis</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/player.js"></script>
+  <script src="js/core/navigation.js"></script>
+  <script src="js/data/missions.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/dashboard-sidebar.js"></script>
+  <script src="js/pages/diagnosis.js"></script>
+</body>
+</html>

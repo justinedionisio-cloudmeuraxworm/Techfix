@@ -1,0 +1,480 @@
+/* =========================================================
+   TechFix — components.css
+   Reusable, page-agnostic UI pieces used across screens.
+   ========================================================= */
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.card__header {
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card__body {
+  padding: 20px;
+}
+
+/* Gradient-header variant, used for reward / mission-style cards */
+.card--gradient-warm .card__header {
+  background: linear-gradient(120deg, #ff9966, #ec4899);
+}
+
+.card--gradient-cool .card__header {
+  background: linear-gradient(120deg, #6fb1f8, #2f7cf6);
+}
+
+.card--gradient-gold .card__header {
+  background: linear-gradient(120deg, #ffd166, #f5b400);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-pill);
+  padding: 12px 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--color-blue-light), var(--color-blue));
+  color: var(--color-white);
+  box-shadow: var(--shadow-button);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 12px 24px rgba(47, 124, 246, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background: #bcd3f2;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-navy);
+  border: 1.5px solid #d7e4f5;
+}
+
+.btn-secondary:hover {
+  background: #f2f7fd;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+}
+
+/* Circular icon button (settings, etc.) */
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--color-navy);
+}
+
+/* ---------- Progress bar ---------- */
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: #e4edf9;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-blue-light), var(--color-blue));
+}
+
+.progress-fill--gold {
+  background: linear-gradient(90deg, #ffe08a, var(--color-gold));
+}
+
+/* ---------- Badges / pills ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.badge--level {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.badge--easy {
+  background: var(--color-green-soft);
+  color: var(--color-green);
+}
+
+.badge--medium {
+  background: var(--color-orange-soft);
+  color: var(--color-orange);
+}
+
+.badge--rank {
+  background: var(--color-gold-soft);
+  color: #b17c00;
+}
+
+/* ---------- Stat pill (Tech Coins / Troubleshooting %) ---------- */
+.stat-pill {
+  background: #f4f8fd;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  flex: 1;
+}
+
+.stat-pill__label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.stat-pill__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ---------- Avatar ---------- */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-blue-light), var(--color-blue));
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.avatar--lg {
+  width: 56px;
+  height: 56px;
+  font-size: 1.3rem;
+}
+
+/* ---------- Empty / placeholder tile ---------- */
+.tile {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.tile:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.tile__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.tile__icon--blue { background: #e4f0fe; color: var(--color-blue); }
+.tile__icon--gold { background: var(--color-gold-soft); color: #b17c00; }
+.tile__icon--green { background: var(--color-green-soft); color: var(--color-green); }
+.tile__icon--purple { background: #f3e8fe; color: var(--color-purple); }
+
+.tile__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.tile__desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Toast (temporary status message) ---------- */
+.tf-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-card-hover);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+}
+
+.tf-toast--visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ---------- Step card (How to Play tutorial) ---------- */
+.step-card {
+  background: #f4f8fd;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.step-card__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-blue);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.step-card__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-navy);
+  font-size: 0.95rem;
+}
+
+.step-card__desc {
+  font-size: 0.83rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Gameplay flow row (icons connected by arrows) ---------- */
+.flow-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.flow-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-align: center;
+  width: 76px;
+}
+
+.flow-node__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-blue-light), var(--color-blue));
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+}
+
+.flow-arrow {
+  color: var(--color-blue-light);
+  font-size: 1.1rem;
+}
+
+/* ---------- Tip list ---------- */
+.tip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tip-item {
+  display: flex;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--color-text-main);
+}
+
+.tip-item__icon {
+  flex-shrink: 0;
+}
+
+/* ---------- Numbered info card (Mission Briefing) ---------- */
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.info-row__num {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--color-gold-soft);
+  color: #b17c00;
+  font-family: var(--font-display);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.info-grid__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-grid__label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.info-grid__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+/* ---------- Checklist (Mission Objectives) ---------- */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.checklist-item__check {
+  color: var(--color-green);
+}
+
+/* ---------- Equipment grid ---------- */
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  gap: 12px;
+  text-align: center;
+}
+
+.equipment-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.equipment-item__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: #f4f8fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.equipment-item__label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Mission header banner (Mission Briefing) ---------- */
+.mission-header {
+  background: linear-gradient(120deg, var(--color-blue-light), var(--color-blue));
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  box-shadow: var(--shadow-card);
+}
+
+.mission-header__eyebrow {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.mission-header h1 {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  margin-top: 4px;
+}

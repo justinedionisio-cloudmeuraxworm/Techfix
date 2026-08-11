@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFix — Results</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages/results.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Top nav bar -->
+    <header class="topbar">
+      <div class="topbar__brand">
+        <div class="topbar__brand-mark">🖥️</div>
+        <span>TechFix</span>
+      </div>
+      <div class="topbar__title">Results</div>
+      <div class="topbar__right">
+        <div class="topbar__profile">
+          <div class="avatar" data-tf-navbar-avatar>S</div>
+          <div class="topbar__profile-info">
+            <span class="topbar__profile-name" data-tf-navbar-name>Student</span>
+            <span class="badge badge--level" data-tf-navbar-level>Level 1</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-grid">
+
+        <!-- Main column -->
+        <div class="stack">
+
+          <!-- Mission header -->
+          <section class="mission-header">
+            <div class="mission-header__eyebrow">🏁 Results</div>
+            <h1 id="missionHeaderTitle">Mission 1: Computer Won't Turn On</h1>
+          </section>
+
+          <!-- Blocked state: no submitted diagnosis found -->
+          <section class="card" id="blockedCard" style="display:none;">
+            <div class="card__header">🚫 No Diagnosis Found</div>
+            <div class="card__body">
+              <div class="blocked-notice">
+                <span class="blocked-notice__icon">🧾</span>
+                <p id="blockedMessage">Submit a diagnosis before viewing results.</p>
+                <button type="button" class="btn btn-primary" id="blockedActionBtn">Continue</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Result banner -->
+          <section class="result-banner" id="resultBanner" style="display:none;">
+            <span class="result-banner__icon" id="resultIcon">✅</span>
+            <div>
+              <div class="result-banner__title" id="resultTitle">Diagnosis Correct!</div>
+              <div class="result-banner__subtitle" id="resultSubtitle">Great work tracking down the problem.</div>
+            </div>
+          </section>
+
+          <!-- Diagnosis recap -->
+          <section class="card" id="diagnosisRecapCard" style="display:none;">
+            <div class="card__header">🩺 Diagnosis Recap</div>
+            <div class="card__body">
+              <div class="recap-row">
+                <span class="recap-row__label">Your Diagnosis</span>
+                <span class="recap-row__value" id="yourDiagnosisText">—</span>
+              </div>
+              <div class="recap-row">
+                <span class="recap-row__label">Correct Diagnosis</span>
+                <span class="recap-row__value recap-row__value--correct" id="correctDiagnosisText">—</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Evidence recap -->
+          <section class="card" id="evidenceRecapCard" style="display:none;">
+            <div class="card__header">🧾 Troubleshooting Recap</div>
+            <div class="card__body">
+              <div class="evidence-list" id="evidenceRecapList"></div>
+            </div>
+          </section>
+
+          <!-- Educational feedback -->
+          <section class="card" id="feedbackCard" style="display:none;">
+            <div class="card__header" id="feedbackHeader">📚 Why This Diagnosis Is Correct</div>
+            <div class="card__body">
+              <p class="feedback-text" id="feedbackText"></p>
+              <h4 class="tips-heading">Troubleshooting Tips</h4>
+              <div class="tip-list" id="feedbackTipsList"></div>
+            </div>
+          </section>
+
+          <!-- Performance -->
+          <section class="card" id="performanceCard" style="display:none;">
+            <div class="card__header">📈 Performance</div>
+            <div class="card__body">
+              <div class="row-2">
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Diagnosis Accuracy</div>
+                  <div class="stat-pill__value" id="perfDiagnosisAccuracy">0%</div>
+                </div>
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Troubleshooting Completion</div>
+                  <div class="stat-pill__value" id="perfTroubleshootingCompletion">0%</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Rewards recap -->
+          <section class="card card--gradient-gold" id="rewardsCard" style="display:none;">
+            <div class="card__header" id="rewardsHeader">🎉 Mission Complete</div>
+            <div class="card__body">
+              <div class="rewards-row">
+                <div class="stat-pill">
+                  <div class="stat-pill__label">XP Earned</div>
+                  <div class="stat-pill__value">⭐ <span id="rewardsXp">+0</span></div>
+                </div>
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Tech Coins</div>
+                  <div class="stat-pill__value">🪙 <span id="rewardsCoins">+0</span></div>
+                </div>
+              </div>
+              <div class="rewards-badge" id="rewardsBadgeRow" style="display:none;">
+                <span class="rewards-badge__icon">🏆</span>
+                <span id="rewardsBadgeName">Hardware Rookie</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Level up -->
+          <section class="card card--gradient-cool" id="levelUpCard" style="display:none;">
+            <div class="card__header">🚀 Level Up!</div>
+            <div class="card__body">
+              <div class="level-up-row">
+                <span class="level-up-badge" id="levelUpFrom">Level 1</span>
+                <span class="level-up-arrow">→</span>
+                <span class="level-up-badge level-up-badge--new" id="levelUpTo">Level 2</span>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <section class="card" data-tf-dashboard>
+            <div class="card__header">📊 Player Dashboard</div>
+            <div class="card__body dashboard-body">
+              <div class="dashboard-identity">
+                <div class="avatar avatar--lg" data-tf-dash-avatar>S</div>
+                <div>
+                  <div class="dashboard-name" data-tf-dash-name>Student</div>
+                  <span class="badge badge--level" data-tf-dash-level>Level 1</span>
+                </div>
+              </div>
+              <div class="dashboard-xp">
+                <div class="dashboard-xp-row">
+                  <span class="text-muted">XP</span>
+                  <span class="text-muted" data-tf-dash-xp-label>0/1000 XP</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill progress-fill--gold" data-tf-dash-xp-fill style="width: 0%;"></div>
+                </div>
+              </div>
+              <p class="text-muted dashboard-rank-label">
+                Current Rank: <strong data-tf-dash-rank>Beginner</strong>
+              </p>
+              <div class="row-2">
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Tech Coins</div>
+                  <div class="stat-pill__value">🪙 <span data-tf-dash-coins>0</span></div>
+                </div>
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Troubleshooting</div>
+                  <div class="stat-pill__value">🎯 <span data-tf-dash-accuracy>0%</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- Bottom action bar -->
+    <div class="bottom-bar" id="resultsActionBar" style="display:none;">
+      <button class="btn btn-secondary" id="returnHomeBtn">🏠 Return Home</button>
+      <button class="btn btn-primary btn-lg" id="primaryActionBtn">▶ Next Mission</button>
+    </div>
+  </div>
+
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/player.js"></script>
+  <script src="js/core/navigation.js"></script>
+  <script src="js/data/missions.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/dashboard-sidebar.js"></script>
+  <script src="js/pages/results.js"></script>
+</body>
+</html>

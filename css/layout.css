@@ -1,0 +1,135 @@
+/* =========================================================
+   TechFix — layout.css
+   Structural shell shared by every in-game screen:
+   top nav bar, page container, and bottom action bar.
+   ========================================================= */
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Top nav bar ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(15, 37, 71, 0.06);
+}
+
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--color-navy);
+}
+
+.topbar__brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--color-blue-light), var(--color-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.topbar__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.topbar__profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar__profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.topbar__profile-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-navy);
+}
+
+/* ---------- Page container ---------- */
+.page {
+  flex: 1;
+  padding: 28px 32px 40px;
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: var(--gap-lg);
+  align-items: start;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+}
+
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-lg);
+}
+
+/* ---------- Sidebar (Player Dashboard etc.) ---------- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+  position: sticky;
+  top: 28px;
+}
+
+/* ---------- Bottom action bar ---------- */
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 18px 32px 28px;
+}
+
+/* ---------- Centered auth layout (login screen) ---------- */
+.auth-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}

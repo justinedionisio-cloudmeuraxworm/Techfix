@@ -1,0 +1,201 @@
+/* =========================================================
+   TechFix — diagnosis.css
+   Styling for the Diagnosis screen (Phase 4). Reuses tokens
+   and shared components from base.css / components.css —
+   only screen-specific evidence list, choice cards, blocked
+   state, and confirmation modal live here.
+   ========================================================= */
+
+.diagnosis-hint {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+/* ---------- Blocked state (no valid inspection state) ---------- */
+.blocked-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 20px 10px;
+}
+
+.blocked-notice__icon {
+  font-size: 2rem;
+}
+
+.blocked-notice p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  max-width: 380px;
+}
+
+/* ---------- Evidence list ---------- */
+.evidence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.evidence-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px solid #eef2f8;
+  font-size: 0.86rem;
+}
+
+.evidence-item:last-child {
+  border-bottom: none;
+}
+
+.evidence-item__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.evidence-item__mark {
+  font-size: 0.95rem;
+}
+
+.evidence-item__mark--pending { color: #c3cfe0; }
+.evidence-item__mark--normal { color: var(--color-green); }
+.evidence-item__mark--problem { color: #ef4444; }
+
+.evidence-item__status {
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.evidence-item__status--pending { color: var(--color-text-muted); }
+.evidence-item__status--normal { color: var(--color-green); }
+.evidence-item__status--problem { color: #ef4444; }
+
+.incomplete-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  background: var(--color-orange-soft);
+  color: #b17c00;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ---------- Diagnosis choice cards ---------- */
+.choice-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: #f4f8fd;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
+}
+
+.choice-card:hover {
+  background: #eaf2fc;
+}
+
+.choice-card--selected {
+  border-color: var(--color-blue);
+  background: #e4f0fe;
+}
+
+.choice-card__mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #cddcf0;
+  background: var(--color-white);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  color: var(--color-white);
+}
+
+.choice-card--selected .choice-card__mark {
+  border-color: var(--color-blue);
+  background: var(--color-blue);
+}
+
+.choice-card__label {
+  font-weight: 600;
+  color: var(--color-navy);
+  font-size: 0.92rem;
+}
+
+/* ---------- Confirmation modal ---------- */
+.tf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 37, 71, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.tf-modal-overlay--visible {
+  display: flex;
+}
+
+.tf-modal {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card-hover);
+  padding: 26px 28px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.tf-modal h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.tf-modal__note {
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.tf-modal__selection {
+  background: #f4f8fd;
+  border-left: 3px solid var(--color-blue);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-weight: 700;
+  color: var(--color-navy);
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+}
+
+.tf-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

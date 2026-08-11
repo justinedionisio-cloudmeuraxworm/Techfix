@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFix — Mission Briefing</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages/mission-briefing.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Top nav bar -->
+    <header class="topbar">
+      <div class="topbar__brand">
+        <div class="topbar__brand-mark">🖥️</div>
+        <span>TechFix</span>
+      </div>
+      <div class="topbar__title">Computer Troubleshooting Simulation Game</div>
+      <div class="topbar__right">
+        <div class="topbar__profile">
+          <div class="avatar" data-tf-navbar-avatar>S</div>
+          <div class="topbar__profile-info">
+            <span class="topbar__profile-name" data-tf-navbar-name>Student</span>
+            <span class="badge badge--level" data-tf-navbar-level>Level 1</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-grid">
+
+        <!-- Main column -->
+        <div class="stack">
+
+          <div class="mission-header">
+            <div class="mission-header__eyebrow" id="missionEyebrow">MISSION BRIEFING</div>
+            <h1 id="missionHeaderTitle">Mission 1: Computer Won't Turn On</h1>
+          </div>
+
+          <section class="card">
+            <div class="card__body">
+              <div class="info-row">
+                <div class="info-row__num">1</div>
+                <div class="info-grid">
+                  <div class="info-grid__item">
+                    <span class="info-grid__label">Difficulty</span>
+                    <span class="info-grid__value"><span class="badge badge--easy" id="briefDifficulty">Easy</span></span>
+                  </div>
+                  <div class="info-grid__item">
+                    <span class="info-grid__label">Estimated Time</span>
+                    <span class="info-grid__value" id="briefTime">⏱ 10 Minutes</span>
+                  </div>
+                  <div class="info-grid__item">
+                    <span class="info-grid__label">Rewards</span>
+                    <span class="info-grid__value">⭐ <span id="briefXp">+100</span> XP</span>
+                  </div>
+                  <div class="info-grid__item">
+                    <span class="info-grid__label">&nbsp;</span>
+                    <span class="info-grid__value">🪙 <span id="briefCoins">+50</span> Coins</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card__header">📖 Scenario</div>
+            <div class="card__body">
+              <p id="briefScenario"></p>
+            </div>
+          </section>
+
+          <div class="row-2">
+            <section class="card">
+              <div class="card__header">🎯 Learning Objectives</div>
+              <div class="card__body">
+                <ul class="checklist" id="briefLearningObjectives"></ul>
+              </div>
+            </section>
+
+            <section class="card">
+              <div class="card__header">🧰 Equipment Available</div>
+              <div class="card__body">
+                <div class="equipment-grid" id="briefEquipment"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <section class="card" data-tf-dashboard>
+            <div class="card__header">📊 Player Dashboard</div>
+            <div class="card__body dashboard-body">
+              <div class="dashboard-identity">
+                <div class="avatar avatar--lg" data-tf-dash-avatar>S</div>
+                <div>
+                  <div class="dashboard-name" data-tf-dash-name>Student</div>
+                  <span class="badge badge--level" data-tf-dash-level>Level 1</span>
+                </div>
+              </div>
+              <div class="dashboard-xp">
+                <div class="dashboard-xp-row">
+                  <span class="text-muted">XP</span>
+                  <span class="text-muted" data-tf-dash-xp-label>0/1000 XP</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill progress-fill--gold" data-tf-dash-xp-fill style="width: 0%;"></div>
+                </div>
+              </div>
+              <p class="text-muted dashboard-rank-label">
+                Current Rank: <strong data-tf-dash-rank>Beginner</strong>
+              </p>
+              <div class="row-2">
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Tech Coins</div>
+                  <div class="stat-pill__value">🪙 <span data-tf-dash-coins>0</span></div>
+                </div>
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Troubleshooting</div>
+                  <div class="stat-pill__value">🎯 <span data-tf-dash-accuracy>0%</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card__header">📝 Mission Objectives</div>
+            <div class="card__body">
+              <ul class="checklist" id="briefMissionObjectives"></ul>
+            </div>
+          </section>
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- Bottom action bar -->
+    <div class="bottom-bar">
+      <button class="btn btn-secondary" id="backBtn">◀ Back</button>
+      <button class="btn btn-primary btn-lg" id="beginTroubleshootingBtn">▶ Begin Troubleshooting</button>
+    </div>
+  </div>
+
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/player.js"></script>
+  <script src="js/core/navigation.js"></script>
+  <script src="js/data/missions.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/dashboard-sidebar.js"></script>
+  <script src="js/pages/mission-briefing.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFix — Troubleshooting</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages/troubleshooting.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Top nav bar -->
+    <header class="topbar">
+      <div class="topbar__brand">
+        <div class="topbar__brand-mark">🖥️</div>
+        <span>TechFix</span>
+      </div>
+      <div class="topbar__title">Troubleshooting</div>
+      <div class="topbar__right">
+        <div class="topbar__profile">
+          <div class="avatar" data-tf-navbar-avatar>S</div>
+          <div class="topbar__profile-info">
+            <span class="topbar__profile-name" data-tf-navbar-name>Student</span>
+            <span class="badge badge--level" data-tf-navbar-level>Level 1</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-grid">
+
+        <!-- Main column -->
+        <div class="stack">
+
+          <!-- Current Task -->
+          <section class="card">
+            <div class="card__header">🎯 Current Task</div>
+            <div class="card__body task-card__body">
+              <div class="task-card__info">
+                <h3 id="taskTitle">Diagnosing the Computer</h3>
+                <p id="taskInstruction">Select a highlighted component to begin inspecting.</p>
+              </div>
+              <div class="task-timer" id="taskTimer">
+                <span class="task-timer__label">Time</span>
+                <span class="task-timer__value" id="timerValue">10:00</span>
+                <span class="task-timer__note">Recommended time elapsed</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Computer diagram -->
+          <section class="card diagram-card">
+            <div class="card__header">🖥️ Inspect the Computer</div>
+            <div class="card__body">
+              <p class="diagram-hint">Click a glowing component to select it, then use the right tool to inspect or test it.</p>
+
+              <div class="computer-diagram" id="computerDiagram">
+                <div class="device-visual" aria-hidden="true">
+                  <div class="device-monitor">
+                    <div class="device-monitor__glow">⚠️</div>
+                  </div>
+                  <div class="device-monitor-stand"></div>
+                  <div class="device-monitor-base"></div>
+                  <div class="device-cable-line"></div>
+                  <div class="device-tower"></div>
+                </div>
+
+                <!-- Hotspots (positioned via inline style, see js/pages/troubleshooting.js for state classes) -->
+                <button type="button" class="hotspot" id="hotspot-power-cable" data-component-id="power-cable"
+                  style="left: calc(50% - 55px); top: 158px;" title="Power Cable">🔌</button>
+
+                <button type="button" class="hotspot" id="hotspot-psu" data-component-id="psu"
+                  style="left: calc(50% - 80px); top: 285px;" title="Power Supply (PSU)">🔋
+                  <span class="hotspot__badge">!</span>
+                </button>
+
+                <button type="button" class="hotspot" id="hotspot-ram" data-component-id="ram"
+                  style="left: calc(50% - 195px); top: 195px;" title="RAM">💾
+                  <span class="hotspot__badge">✓</span>
+                </button>
+
+                <button type="button" class="hotspot" id="hotspot-motherboard" data-component-id="motherboard"
+                  style="left: calc(50% - 150px); top: 235px;" title="Motherboard">🖥️
+                  <span class="hotspot__badge">✓</span>
+                </button>
+
+                <button type="button" class="hotspot" id="hotspot-cpu" data-component-id="cpu"
+                  style="left: calc(50% - 110px); top: 210px;" title="CPU">⚙️
+                  <span class="hotspot__badge">✓</span>
+                </button>
+
+                <button type="button" class="hotspot" id="hotspot-storage" data-component-id="storage"
+                  style="left: calc(50% - 215px); top: 275px;" title="Storage Drive">💽
+                  <span class="hotspot__badge">✓</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Component details + actions -->
+          <section class="card">
+            <div class="card__header">🔍 Component Details</div>
+            <div class="card__body" id="componentDetailsBody">
+              <div class="details-empty" id="detailsEmptyState">
+                <span style="font-size:1.6rem;">🖱️</span>
+                <span>Select a component on the computer above to begin inspecting.</span>
+              </div>
+
+              <div id="detailsContent" style="display:none;">
+                <div class="details-header">
+                  <div class="details-header__icon" id="detailsIcon">🔌</div>
+                  <div>
+                    <div class="details-header__title" id="detailsName">Component Name</div>
+                    <span class="status-pill status-pill--uninspected" id="detailsStatusPill">Not Inspected</span>
+                  </div>
+                </div>
+                <p class="details-desc" id="detailsDesc">Component description.</p>
+
+                <div class="finding-box" id="findingBox">
+                  <span>🧾</span>
+                  <span id="findingText">Finding text.</span>
+                </div>
+
+                <div class="details-actions">
+                  <button type="button" class="btn btn-primary" id="inspectBtn">🔍 Inspect</button>
+                  <button type="button" class="btn btn-primary" id="testBtn">⚡ Test</button>
+                  <button type="button" class="btn btn-secondary" id="resetBtn">♻️ Reconnect / Reset</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Toolbox -->
+          <section class="card">
+            <div class="card__header">🧰 Toolbox</div>
+            <div class="card__body">
+              <div class="toolbox-row" id="toolboxRow"></div>
+              <div class="tool-desc" id="toolDesc">Select a tool to see what it's used for.</div>
+            </div>
+          </section>
+
+          <!-- Inspection checklist -->
+          <section class="card">
+            <div class="card__header">✅ Inspection Checklist</div>
+            <div class="card__body">
+              <div class="inspect-checklist" id="inspectChecklist"></div>
+              <div class="progress-heading-row">
+                <span>Inspection Progress</span>
+                <strong id="progressLabel">0 / 6 Components Inspected</strong>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <section class="card" data-tf-dashboard>
+            <div class="card__header">📊 Player Dashboard</div>
+            <div class="card__body dashboard-body">
+              <div class="dashboard-identity">
+                <div class="avatar avatar--lg" data-tf-dash-avatar>S</div>
+                <div>
+                  <div class="dashboard-name" data-tf-dash-name>Student</div>
+                  <span class="badge badge--level" data-tf-dash-level>Level 1</span>
+                </div>
+              </div>
+              <div class="dashboard-xp">
+                <div class="dashboard-xp-row">
+                  <span class="text-muted">XP</span>
+                  <span class="text-muted" data-tf-dash-xp-label>0/1000 XP</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill progress-fill--gold" data-tf-dash-xp-fill style="width: 0%;"></div>
+                </div>
+              </div>
+              <p class="text-muted dashboard-rank-label">
+                Current Rank: <strong data-tf-dash-rank>Beginner</strong>
+              </p>
+              <div class="row-2">
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Tech Coins</div>
+                  <div class="stat-pill__value">🪙 <span data-tf-dash-coins>0</span></div>
+                </div>
+                <div class="stat-pill">
+                  <div class="stat-pill__label">Troubleshooting</div>
+                  <div class="stat-pill__value">🎯 <span data-tf-dash-accuracy>0%</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card__header">📝 Mission Objectives</div>
+            <div class="card__body">
+              <ul class="checklist" id="troubleshootingObjectives"></ul>
+            </div>
+          </section>
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- Bottom action bar -->
+    <div class="bottom-bar">
+      <button class="btn btn-secondary" id="previousStepBtn">◀ Previous Step</button>
+      <button class="btn btn-secondary" id="hintBtn">💡 Hint</button>
+      <button class="btn btn-primary btn-lg" id="continueDiagnosisBtn" disabled>✅ Continue to Diagnosis</button>
+    </div>
+  </div>
+
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/player.js"></script>
+  <script src="js/core/navigation.js"></script>
+  <script src="js/data/missions.js"></script>
+  <script src="js/data/tools.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/dashboard-sidebar.js"></script>
+  <script src="js/pages/troubleshooting.js"></script>
+</body>
+</html>
